@@ -1,3 +1,5 @@
+import sunnyImg from "../../assets/sunny.png"
+
 import { Overlay } from "./style";
 
 export function WeatherContainer() {
@@ -18,7 +20,57 @@ export function WeatherContainer() {
                     </div>
                 </div>
                 <div className="futureWeather">
-                    <p>teste</p>
+                    <div className="dayContainer">
+                        <div className="imgAndWeather">
+                            <img src={sunnyImg} alt="sun"/>
+                            <span>Sunny</span>
+                        </div>
+                        <div className="tempAndDate">
+                            <p className="temp">12ºC</p>
+                            <p>27.09.2021</p>
+                        </div>
+                    </div>
+                    <div className="dayContainer">
+                        <div className="imgAndWeather">
+                            <img src={sunnyImg} alt="sun"/>
+                            <span>Sunny</span>
+                        </div>
+                        <div className="tempAndDate">
+                            <p className="temp">12ºC</p>
+                            <p>27.09.2021</p>
+                        </div>
+                    </div>
+                    <div className="dayContainer">
+                        <div className="imgAndWeather">
+                            <img src={sunnyImg} alt="sun"/>
+                            <span>Sunny</span>
+                        </div>
+                        <div className="tempAndDate">
+                            <p className="temp">12ºC</p>
+                            <p>27.09.2021</p>
+                        </div>
+                    </div>
+                    <div className="dayContainer">
+                        <div className="imgAndWeather">
+                            <img src={sunnyImg} alt="sun"/>
+                            <span>Sunny</span>
+                        </div>
+                        <div className="tempAndDate">
+                            <p className="temp">12ºC</p>
+                            <p>27.09.2021</p>
+                        </div>
+                    </div>
+                    <div className="dayContainer">
+                        <div className="imgAndWeather">
+                            <img src={sunnyImg} alt="sun"/>
+                            <span>Sunny</span>
+                        </div>
+                        <div className="tempAndDate">
+                            <p className="temp">12ºC</p>
+                            <p>27.09.2021</p>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </Overlay>

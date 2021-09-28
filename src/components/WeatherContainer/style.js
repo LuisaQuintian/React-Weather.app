@@ -47,5 +47,38 @@ export const Overlay = styled.div`
     .futureWeather {
         flex-grow: 1;
         background-color: rgba(255, 255, 8255, 0.7);
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .dayContainer {
+            .imgAndWeather {
+                display: flex;
+                align-items: center;
+                
+                img{
+                    width: 40px;
+                    position: absolute;
+                }
+
+                span {
+                    margin-left: 2.8rem;
+                }
+            }
+
+            .tempAndDate {
+                display: flex;
+                align-items: center;
+
+                .temp {
+                    font-size: 2rem;
+                    margin: 0 2.8rem;
+                }
+
+            }       
+        }
+        
     }
+        
 `
