@@ -1,59 +1,52 @@
-import sunnyImg from "../../assets/sunny.png"
+import sunImg from "../../assets/sun.svg"
+import rainImg from "../../assets/rain.svg"
+import cloudImg from "../../assets/cloud.svg"
+import snowImg from "../../assets/snow.svg"
 import { Container } from "./style";
 
-export function FutureWeather() {
+export function FutureWeather({futureWeatherList}) {
+    
+    function weatherImg(weatherDescription) {
+        let Img
+        switch (weatherDescription) {
+            case 'Clear':
+                Img = sunImg;
+                break;
+            case 'Clouds':
+                Img = cloudImg;
+                break;
+            case 'Rain':
+                Img = rainImg;
+                break;
+            case 'Snow':
+                Img = snowImg;
+                break;
+            default:
+                return sunImg
+        }
+        return Img
+    }
+
+    function formatedDate(fullDate) {
+        return fullDate.split(" ")[0].split('-').reverse().join('.')
+    }
+    
     return (
         <Container>
-            <div className="dayContainer">
-                <div className="imgAndWeather">
-                    <img src={sunnyImg} alt="sun"/>
-                    <span>Sunny</span>
-                </div>
-                <div className="tempAndDate">
-                    <p className="temp">12ºC</p>
-                    <p>27.09.2021</p>
-                </div>
-            </div>
-            <div className="dayContainer">
-                <div className="imgAndWeather">
-                    <img src={sunnyImg} alt="sun"/>
-                    <span>Sunny</span>
-                </div>
-                <div className="tempAndDate">
-                    <p className="temp">12ºC</p>
-                    <p>27.09.2021</p>
-                </div>
-            </div>
-            <div className="dayContainer">
-                <div className="imgAndWeather">
-                    <img src={sunnyImg} alt="sun"/>
-                    <span>Sunny</span>
-                </div>
-                <div className="tempAndDate">
-                    <p className="temp">12ºC</p>
-                    <p>27.09.2021</p>
-                </div>
-            </div>
-            <div className="dayContainer">
-                <div className="imgAndWeather">
-                    <img src={sunnyImg} alt="sun"/>
-                    <span>Sunny</span>
-                </div>
-                <div className="tempAndDate">
-                    <p className="temp">12ºC</p>
-                    <p>27.09.2021</p>
-                </div>
-            </div>
-            <div className="dayContainer">
-                <div className="imgAndWeather">
-                    <img src={sunnyImg} alt="sun"/>
-                    <span>Sunny</span>
-                </div>
-                <div className="tempAndDate">
-                    <p className="temp">12ºC</p>
-                    <p>27.09.2021</p>
-                </div>
-            </div>
+            {!futureWeatherList ? 'loading weather list...': (
+                futureWeatherList.map(weather => (
+                    <div className="dayContainer" key={weather.dt}>
+                        <div className="imgAndWeather">
+                            <img src={weatherImg(weather.weather[0].main)} alt="sun"/>
+                            <span>{weather.weather[0].main}</span>
+                        </div>
+                        <div className="tempAndDate">
+                            <p className="temp">{Math.round(weather.main.temp)}°C</p>
+                            <p>{formatedDate(weather.dt_txt)}</p>
+                        </div>
+                    </div>
+                ))
+            )}
         </Container>
     )
 }
