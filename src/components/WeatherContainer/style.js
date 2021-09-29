@@ -23,6 +23,7 @@ export const Overlay = styled.div`
     }
 
     .todaysWeather {
+        background: linear-gradient(180deg, rgba(255,255,255,0.6755077030812324) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 100%);
         flex-basis: 60%;
         padding: 3.5rem 2.5rem;
         display: flex;
@@ -47,12 +48,14 @@ export const Overlay = styled.div`
     .futureWeather {
         flex-grow: 1;
         background-color: rgba(255, 255, 8255, 0.7);
-        padding: 0 2rem;
+        padding: 0 3.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
 
         .dayContainer {
+            border-bottom: 2px solid #777b7f30;
+
             .imgAndWeather {
                 display: flex;
                 align-items: center;
@@ -70,10 +73,15 @@ export const Overlay = styled.div`
             .tempAndDate {
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
 
                 .temp {
                     font-size: 2rem;
                     margin: 0 2.8rem;
+                }
+
+                .date {
+                    
                 }
 
             }       

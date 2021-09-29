@@ -17,6 +17,8 @@ export const GlobalStyle = createGlobalStyle ` //esse createGlobalStyle é uma f
 
     body, input, textarea, button { //esses três últimos n importam a fonte do html por padrão, então precisa definir
         font-family: 'PT Sans', sans-serif;
+        font-weight: 700;
+        color: #4e5153;
     }
     button {
         cursor: pointer;
