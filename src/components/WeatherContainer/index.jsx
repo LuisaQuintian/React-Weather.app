@@ -5,7 +5,7 @@ import { TodaysWeather } from "../TodaysWeather"
 
 import { Overlay } from "./style"
 
-export function WeatherContainer({ forecast }) {
+export function WeatherContainer({ forecast, weatherNow }) {
     const [futureWeatherList, setFutureWeatherList] = useState([])
     const TODAY = new Date().toISOString().split('T')[0]
 
@@ -18,12 +18,10 @@ export function WeatherContainer({ forecast }) {
         
     }, [forecast, TODAY])
 
-    console.log('futureWeatherList: ', futureWeatherList)
-
     return (
         <Overlay>
             <div className="border">
-                <TodaysWeather />
+                <TodaysWeather weatherNow={weatherNow}/>
                 <FutureWeather futureWeatherList={futureWeatherList} />
             </div>
         </Overlay>

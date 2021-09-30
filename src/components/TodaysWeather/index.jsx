@@ -1,18 +1,27 @@
 import { Container } from "./style";
 
-export function TodaysWeather() {
+export function TodaysWeather({ weatherNow }) {
+    const GET_WEEK_DAY = new Date().getDay()
+    const WEEK_DAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+
+    const GET_MONTH = new Date().getMonth()
+    const MONTH = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const GET_YEAR = new Date().getFullYear()
+    const GET_DAY = new Date().getDate()
+    
     return (
         <Container>
             <div>
                 <div className="dateContainer">
-                    <p>Domingo</p>
-                    <p>26 February 2021</p>
+                    <p>{WEEK_DAY[GET_WEEK_DAY]}</p>
+                    <p>{GET_DAY} {MONTH[GET_MONTH]} {GET_YEAR}</p>
                 </div>
-                <span className="weatherType">Mostly  cloudy</span>
+                <span className="weatherType">{weatherNow?.weather?.[0].main}</span>
             </div>
             <div className="temperatureContainer">
-                <h1 className="temperature">10ºC</h1>
-                <span className="city">Munnar, Kerala</span>
+                <h1 className="temperature">{Math.round(weatherNow?.main?.temp)}ºC</h1>
+                <span className="city">{weatherNow?.name}</span>
             </div>
         </Container>
     )

@@ -2,6 +2,7 @@ import sunImg from "../../assets/sun.svg"
 import rainImg from "../../assets/rain.svg"
 import cloudImg from "../../assets/cloud.svg"
 import snowImg from "../../assets/snow.svg"
+import thunderImg from "../../assets/thunder.svg"
 import { Container } from "./style";
 
 export function FutureWeather({futureWeatherList}) {
@@ -20,6 +21,9 @@ export function FutureWeather({futureWeatherList}) {
                 break;
             case 'Snow':
                 Img = snowImg;
+                break;
+            case 'Thunderstorm':
+                Img = thunderImg;
                 break;
             default:
                 return sunImg
