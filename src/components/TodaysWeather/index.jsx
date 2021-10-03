@@ -1,6 +1,9 @@
+import { useForecast } from "../../hooks/useForecast";
 import { Container } from "./style";
 
-export function TodaysWeather({ weatherNow }) {
+export function TodaysWeather() {
+    const { weatherNow } = useForecast()
+
     const GET_WEEK_DAY = new Date().getDay()
     const WEEK_DAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 

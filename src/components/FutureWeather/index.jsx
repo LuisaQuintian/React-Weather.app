@@ -4,8 +4,10 @@ import cloudImg from "../../assets/cloud.svg"
 import snowImg from "../../assets/snow.svg"
 import thunderImg from "../../assets/thunder.svg"
 import { Container } from "./style";
+import { useForecast } from "../../hooks/useForecast"
 
-export function FutureWeather({futureWeatherList}) {
+export function FutureWeather() { 
+    const { futureWeatherList } = useForecast()
     
     function weatherImg(weatherDescription) {
         let Img
