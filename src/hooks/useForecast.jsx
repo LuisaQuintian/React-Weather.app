@@ -21,9 +21,10 @@ export const ForecastProvider = ({children}) => {
         })
     }, [])
 
-    console.log('userLocation', userLocation)
 
     useEffect(() => {
+        if(!userLocation.lat) { return }
+        
         api.get(`/forecast?lat=${userLocation.lat}&lon=${userLocation.lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
         .then(res => setForecast(res.data.list))
     

@@ -12,7 +12,7 @@ export function FutureWeather() {
     function weatherImg(weatherDescription) {
         let Img
         switch (weatherDescription) {
-            case 'Clear':
+            case 'Clear' || 'Sun':
                 Img = sunImg;
                 break;
             case 'Clouds':
