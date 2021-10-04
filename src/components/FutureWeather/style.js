@@ -20,7 +20,10 @@ export const Container = styled.div`
                 }
                 span {
                     margin-left: 2.8rem;
-                }
+                    @media (max-width: 720px) {
+                        margin-left: 4rem;
+                    }
+                }   
             }
 
             .tempAndDate {
@@ -31,6 +34,9 @@ export const Container = styled.div`
                 .temp {
                     font-size: 2rem;
                     margin: 0 2.8rem;
+                    @media (max-width: 720px) {
+                        margin: 0 4rem;
+                    }
                 }
             }       
         }

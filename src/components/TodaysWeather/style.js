@@ -18,8 +18,21 @@ export const Container = styled.div`
         .temperature {
             font-size: 7rem;
             color: white;
+
+            @media (max-width: 720px) {
+                color: #4e5153
+            }
         }
         .city {
             color: white;
+            @media (max-width: 720px) {
+                color: #4e5153
+            }
         }
+
+    @media (max-width: 720px){
+    flex-basis: auto;
+    max-height: 15rem;
+    width: 100%; 
+    }
 `

@@ -12,7 +12,6 @@ const backgroundImg = {
     Snow: snowImg,
     Thunderstorm: thunderImg
 }
-console.log('background: ', backgroundImg.Clouds)
 
 export const Container = styled.main`
     background-image: ${({weatherImage}) => `url(${backgroundImg[weatherImage]})`};

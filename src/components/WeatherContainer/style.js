@@ -20,5 +20,15 @@ export const Overlay = styled.div`
         box-sizing: initial;
 
         display: flex;
-    }   
+    } 
+    
+    @media (max-width: 720px){
+        align-items: flex-start;
+
+            .border {
+                border: 0;
+                flex-wrap: wrap;
+                height: 100%;
+            }
+        }
 `
