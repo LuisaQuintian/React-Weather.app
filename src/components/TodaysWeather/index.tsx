@@ -1,6 +1,7 @@
 import { useForecast } from "../../hooks/useForecast";
 import { Container } from "./style";
 
+
 export function TodaysWeather() {
     const { weatherNow } = useForecast()
 

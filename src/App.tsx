@@ -10,10 +10,8 @@ export function App() {
     <ForecastProvider>
       <Background>
         <WeatherContainer />
-        <GlobalStyle />
       </Background>
+      <GlobalStyle />
     </ForecastProvider>
-    
-
   )
 }

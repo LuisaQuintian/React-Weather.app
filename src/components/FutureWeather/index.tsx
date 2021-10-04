@@ -9,7 +9,7 @@ import { useForecast } from "../../hooks/useForecast"
 export function FutureWeather() { 
     const { futureWeatherList } = useForecast()
     
-    function weatherImg(weatherDescription) {
+    function weatherImg(weatherDescription: string) {
         let Img
         switch (weatherDescription) {
             case 'Clear' || 'Sun':
@@ -33,7 +33,7 @@ export function FutureWeather() {
         return Img
     }
 
-    function formatedDate(fullDate) {
+    function formatedDate(fullDate: string) {
         return fullDate.split(" ")[0].split('-').reverse().join('.')
     }
     
