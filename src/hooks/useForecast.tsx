@@ -96,6 +96,7 @@ interface ForecastContextData {
     weatherNow: Weather
     forecast: Forecast[]
     futureWeatherList: Forecast[]
+    errorMessage: string
 }
 
 const ForecastContext = createContext<ForecastContextData>({} as ForecastContextData)
@@ -108,6 +109,8 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
     const [futureWeatherList, setFutureWeatherList] = useState<Forecast[]>([])
 
     const[userLocation, setUserLocation] = useState<UserLocation>({})
+    
+    const [errorMessage, setErrorMessage] = useState<string>('')
 
     console.log('weatherNow:', weatherNow)
 
@@ -122,13 +125,18 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
 
 
     useEffect(() => {
-        if(!userLocation.lat) { return }
+        if(!userLocation.lat) { 
+          setErrorMessage('This app requires your location to work properly. Este aplicativo requer sua localização para funcionar corretamente.')
+          return
+        }
         
         api.get(`/forecast?lat=${userLocation.lat}&lon=${userLocation.lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
         .then(res => setForecast(res.data.list))
     
         api.get(`/weather?lat=${userLocation.lat}&lon=${userLocation.lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
         .then(res => setWeatherNow(res.data))
+
+        setErrorMessage('')
       }, [userLocation])
 
       useEffect(()=> {
@@ -141,7 +149,7 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
     }, [forecast, TODAY])
 
       return (
-          <ForecastContext.Provider value={{forecast, weatherNow, futureWeatherList}}>
+          <ForecastContext.Provider value={{forecast, weatherNow, futureWeatherList, errorMessage}}>
               {children}
           </ForecastContext.Provider>
       )

@@ -16,8 +16,6 @@ export function TodaysWeather() {
 
     const weatherMain = weatherNow?.weather?.[0].main
     const fontColor = (weatherMain === 'Clear' || weatherMain === 'Clouds')
-
-    console.log('isWorking:', fontColor)
     
     return (
         <Container fontColor={fontColor}>
