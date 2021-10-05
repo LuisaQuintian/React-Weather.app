@@ -13,15 +13,20 @@ export function TodaysWeather() {
 
     const GET_YEAR = new Date().getFullYear()
     const GET_DAY = new Date().getDate()
+
+    const weatherMain = weatherNow?.weather?.[0].main
+    const fontColor = (weatherMain === 'Clear' || weatherMain === 'Clouds')
+
+    console.log('isWorking:', fontColor)
     
     return (
-        <Container>
+        <Container fontColor={fontColor}>
             <div>
                 <div className="dateContainer">
                     <p>{WEEK_DAY[GET_WEEK_DAY]}</p>
                     <p>{GET_DAY} {MONTH[GET_MONTH]} {GET_YEAR}</p>
                 </div>
-                <span className="weatherType">{weatherNow?.weather?.[0].main}</span>
+                <span className="weatherType">{weatherMain}</span>
             </div>
             <div className="temperatureContainer">
                 <h1 className="temperature">{Math.round(weatherNow?.main?.temp)}ºC</h1>

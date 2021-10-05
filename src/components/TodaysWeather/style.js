@@ -8,6 +8,12 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
+    @media (max-width: 720px) {
+        color: ${({fontColor})=> fontColor ? '#4e5153' : 'white'};
+    }
+
+
+
     .dateContainer {
             margin-bottom: 10px;
         }
@@ -20,13 +26,13 @@ export const Container = styled.div`
             color: white;
 
             @media (max-width: 720px) {
-                color: #4e5153
+                color: ${({fontColor})=> fontColor ? '#4e5153' : 'white'};
             }
         }
         .city {
             color: white;
             @media (max-width: 720px) {
-                color: #4e5153
+                color: ${({fontColor})=> fontColor ? '#4e5153' : 'white'};
             }
         }
 
