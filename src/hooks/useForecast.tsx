@@ -96,7 +96,7 @@ interface ForecastContextData {
     weatherNow: Weather
     forecast: Forecast[]
     futureWeatherList: Forecast[]
-    errorMessage: string
+    errorMessage: boolean
 }
 
 const ForecastContext = createContext<ForecastContextData>({} as ForecastContextData)
@@ -110,7 +110,7 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
 
     const[userLocation, setUserLocation] = useState<UserLocation>({})
     
-    const [errorMessage, setErrorMessage] = useState<string>('')
+    const [errorMessage, setErrorMessage] = useState<boolean>(false)
 
     console.log('weatherNow:', weatherNow)
 
@@ -126,7 +126,7 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
 
     useEffect(() => {
         if(!userLocation.lat) { 
-          setErrorMessage('This app requires your location to work properly. Este aplicativo requer sua localização para funcionar corretamente.')
+          setErrorMessage(true)
           return
         }
         
@@ -136,7 +136,7 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
         api.get(`/weather?lat=${userLocation.lat}&lon=${userLocation.lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
         .then(res => setWeatherNow(res.data))
 
-        setErrorMessage('')
+        setErrorMessage(false)
       }, [userLocation])
 
       useEffect(()=> {

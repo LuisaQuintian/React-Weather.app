@@ -1,6 +1,7 @@
 import { useForecast } from "../../hooks/useForecast"
 import { FutureWeather } from "../FutureWeather"
 import { TodaysWeather } from "../TodaysWeather"
+import { ErrorMessage } from "../ErrorMessage"
 
 import { Overlay } from "./style"
 
@@ -10,7 +11,7 @@ export function WeatherContainer() {
     console.log('error:', errorMessage)
     return (
         <>
-        {errorMessage ? (<h1>{errorMessage}</h1>) :
+        {errorMessage ? (<ErrorMessage />) :
         <Overlay>
             <div className="border">
                 <TodaysWeather />
