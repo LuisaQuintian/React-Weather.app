@@ -9,7 +9,7 @@ export function ErrorMessage() {
                 <h1>Oops...</h1>
                 <p>This app requires your location to work properly.</p>
                 <p>Este aplicativo requer sua locatização para funcionar corretamente.</p>
-                <button>Allow location Permitir localização</button>
+                <button><span>Allow location</span><span>Permitir localização</span></button>
             </div>
         </Container>
     )

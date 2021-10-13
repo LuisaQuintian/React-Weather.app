@@ -12,9 +12,38 @@ export const Container = styled.div`
     }
     
     .errorModal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 60rem;
+        height: 30rem;
         background-color: white;
         padding: 3rem;
         border-radius: 1.5rem;
+
+        h1 {
+            margin-bottom: 35px;
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin: 5px;
+        }
+
+        button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
+            padding: 10px 25px;
+            border-radius: 0.5rem;
+            border: none;
+        }
     }
 
 `
