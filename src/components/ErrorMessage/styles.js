@@ -43,6 +43,9 @@ export const Container = styled.div`
             padding: 10px 25px;
             border-radius: 0.5rem;
             border: none;
+
+            background-color: #EB5777;
+            color: white;
         }
     }
 
