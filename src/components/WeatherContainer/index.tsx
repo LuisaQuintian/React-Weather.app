@@ -8,7 +8,6 @@ import { Overlay } from "./style"
 export function WeatherContainer() {
     const { errorMessage } = useForecast()
 
-    console.log('error:', errorMessage)
     return (
         <>
         {errorMessage ? (<ErrorMessage />) :

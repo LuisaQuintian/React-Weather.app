@@ -26,6 +26,7 @@ export const Container = styled.div`
         h1 {
             margin-bottom: 35px;
             font-size: 3rem;
+            color: #EB5777;
         }
 
         p {
@@ -34,19 +35,15 @@ export const Container = styled.div`
             text-align: center;
         }
 
-        button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            margin-top: 20px;
-            padding: 10px 25px;
-            border-radius: 0.5rem;
-            border: none;
-
+        hr {
+            width: 70%;
+            height: 3px;
+            margin: 20px;
+            text-align: center;
+            
             background-color: #EB5777;
-            color: white;
+            border: none;
+            border-radius: 50px;
         }
     }
 

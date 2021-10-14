@@ -97,6 +97,7 @@ interface ForecastContextData {
     forecast: Forecast[]
     futureWeatherList: Forecast[]
     errorMessage: boolean
+    getLocation: () => void
 }
 
 const ForecastContext = createContext<ForecastContextData>({} as ForecastContextData)
@@ -112,16 +113,18 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
     
     const [errorMessage, setErrorMessage] = useState<boolean>(false)
 
-    console.log('weatherNow:', weatherNow)
-
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(position => {
-            setUserLocation({
-                lon: position.coords.longitude,
-                lat: position.coords.latitude
-            })
-        })
+        getLocation()
     }, [])
+
+    const getLocation = () => {
+      navigator.geolocation.getCurrentPosition(position => {
+        setUserLocation({
+            lon: position.coords.longitude,
+            lat: position.coords.latitude
+        })
+    })
+    }
 
 
     useEffect(() => {
@@ -149,7 +152,7 @@ export const ForecastProvider = ({children}:ForecastProviderProps) => {
     }, [forecast, TODAY])
 
       return (
-          <ForecastContext.Provider value={{forecast, weatherNow, futureWeatherList, errorMessage}}>
+          <ForecastContext.Provider value={{forecast, weatherNow, futureWeatherList, errorMessage, getLocation}}>
               {children}
           </ForecastContext.Provider>
       )
