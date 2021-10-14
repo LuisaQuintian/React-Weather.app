@@ -17,8 +17,8 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
 
-        width: 60rem;
-        height: 30rem;
+        width: 80%;
+        height: 70%;
         background-color: white;
         padding: 3rem;
         border-radius: 1.5rem;
@@ -31,6 +31,7 @@ export const Container = styled.div`
         p {
             font-size: 1.5rem;
             margin: 5px;
+            text-align: center;
         }
 
         button {
